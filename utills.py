@@ -14,3 +14,19 @@ def filter_file():
         if "state" in row and row['state'] == 'EXECUTED':
             filter_list.append(row)
     return filter_list
+
+
+def sort_file():
+    work_list = filter_file()
+    work_list.sort(key=lambda d: d['date'], reverse=True)
+    return work_list
+
+print(load_file())
+print('*************************')
+print(filter_file())
+for row in filter_file():
+    print (row['date'])
+print('----------------------')
+print(sort_file())
+for row in sort_file():
+    print (row['date'])
